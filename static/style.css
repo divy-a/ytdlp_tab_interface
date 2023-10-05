@@ -1,0 +1,88 @@
+* {
+    font-family: monospace;
+    font-weight: normal;
+}
+
+h1{
+    padding: 10px;
+    color: white;
+}
+
+body {
+    background-color: #302f2f;
+
+}
+
+
+pre {
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size:x-large;
+    overflow: scroll;
+    padding: 0px;
+    margin: 0px;
+    transition: 1s;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #505050;
+
+}
+
+::-webkit-scrollbar-corner {
+    background: none;
+}
+
+table,
+th,
+td {
+    border: 1px solid rgb(34, 34, 34);
+    border-collapse: collapse;
+    padding: 5px;
+    
+}
+
+button {
+    background-color: #4b4b4b;
+    /* Green */
+    margin: 10px 10px 10px 10px;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-size: x-large;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #1b1b1b;
+
+}
+
+/* Styling for input fields */
+input[type="text"] {
+    width: 400px;
+    margin: 10px;
+    padding: 15px;
+    background-color: #4b4b4b;
+    border: none;
+    color: white;
+    font-size: x-large;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+input[type="text"]:focus {
+    background-color: #1b1b1b;
+    outline: none;
+}

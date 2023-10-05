@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTDLP TABULAR INTERFACE</title>
+    <link rel="stylesheet"
+        href="static/style.css" />
+</head>
+
+<body>
+    <h1>YTDLP TABULAR INTERFACE</h1>
+    <form action="/tablize" method="GET">
+        <div id="urlInputs">
+            <input placeholder="URL" type="text" name="url" id="url1" required>
+        </div>
+        <button type="button" id="addUrl">Add more</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // JavaScript to add more input fields when the + button is clicked
+        document.getElementById('addUrl').addEventListener('click', function () {
+            const urlInputs = document.getElementById('urlInputs');
+            const newUrlInput = document.createElement('div');
+            const count = urlInputs.getElementsByTagName('input').length + 1;
+            newUrlInput.innerHTML = `
+                <input placeholder="URL" type="text" name="url" id="url${count}" required>
+            `;
+            urlInputs.appendChild(newUrlInput);
+        });
+    </script>
+</body>
+
+</html>
