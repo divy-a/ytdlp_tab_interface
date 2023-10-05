@@ -27,7 +27,7 @@ def tabulate():
 
         for url in url_values:
             try:
-                json_array += [{'Status': 'OK'} | ytdlp_info_json.info(url)]
+                json_array += [{**{'Status': 'OK'}, **ytdlp_info_json.info(url)}]
             except:
                 json_array += [{'Status': 'ERROR'}]
 
