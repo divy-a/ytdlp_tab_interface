@@ -1,10 +1,11 @@
 
-from flask import Flask, request, jsonify, render_template
-import ytdlp_info_json
+from flask import Flask, request, render_template
 import json
 import traceback
+from yt_dlp import YoutubeDL
 
 app = Flask(__name__)
+ydl = YoutubeDL()
 
 
 @app.route('/')
@@ -25,17 +26,25 @@ def tabulate():
 
         json_array = []
 
-        for url in url_values:
+        for i, url in enumerate(url_values):
             try:
-                json_array += [{**{'Status': 'OK'}, **ytdlp_info_json.info(url)}]
-            except:
-                json_array += [{'Status': 'ERROR'}]
+                json_array += [{**{'s_no': i+1,'Status': 'OK'}, **info(url, ydl)}]
+            except Exception as e:
+                json_array += [{'s_no': i+1, 'Status': f'ERROR : {str(e.__context__)}'}]
 
         return json.dumps(json_array), 200
 
     except Exception as e:
-        return {'error': str(e), 'traceback': traceback.format_exc()}, 400
-
+        return {'error': str(e)}, 400
+  
+  
+def info(url : str, ydl:  YoutubeDL) -> dict:
+    info = ydl.extract_info(url, download=False)
+        
+    if info != None:
+        return info
+    else:
+        raise Exception('Unknown')
 
 if __name__ == '__main__':
     app.run()
