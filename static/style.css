@@ -9,16 +9,16 @@ h1{
 }
 
 body {
-    background-color: #302f2f;
+    background-color: #1f1f1f;
 
 }
 
 
 pre {
-    color: white;
-    width: 200px;
+    color: #f1f1f1;
+    max-width: 300px;
     height: 50px;
-    font-size:x-large;
+    font-size:15px;
     overflow: scroll;
     padding: 0px;
     margin: 0px;
@@ -28,14 +28,14 @@ pre {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 1px;
-    height: 1px;
+    width: 4px;
+    height: 4px;
 }
 
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #505050;
+    background: #3f3f3f;
 
 }
 
@@ -43,38 +43,45 @@ pre {
     background: none;
 }
 
-table,
+table {
+    border-spacing: 4px; /* Adjust the spacing value as needed */
+    padding: 5px;
+}
+
 th,
 td {
-    border: 1px solid rgb(34, 34, 34);
+    border-radius: 5px;
+    background-color: #272727;
+    margin: 10px;
+    border: 0px solid transparent;
     border-collapse: collapse;
-    padding: 5px;
+    padding: 10px;
     
 }
 
+
 button {
-    background-color: #4b4b4b;
+    background-color: #3f3f3f;
     /* Green */
     margin: 10px 10px 10px 10px;
     border: none;
-    color: white;
+    color: #f1f1f1;
     padding: 10px 10px;
-    font-size: x-large;
+    font-size: 15px;
     border-radius: 5px;
     transition: 0.5s;
 }
 
 button:hover {
-    background-color: #1b1b1b;
+    background-color: #272727;
 
 }
 
 /* Styling for input fields */
 input[type="text"] {
-    width: 400px;
     margin: 10px;
     padding: 15px;
-    background-color: #4b4b4b;
+    background-color: #3f3f3f;
     border: none;
     color: white;
     font-size: x-large;
@@ -83,6 +90,6 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-    background-color: #1b1b1b;
+    background-color: #272727;
     outline: none;
 }
