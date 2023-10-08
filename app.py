@@ -1,9 +1,36 @@
 from flask import Flask, request, render_template
 import json
 from yt_dlp import YoutubeDL
+import requests
+import os
+from apscheduler.schedulers.background import BackgroundScheduler
+from dotenv import load_dotenv
+load_dotenv()
+
 
 app = Flask(__name__)
 ydl = YoutubeDL()
+
+
+def keep_alive():
+    try:
+        res = requests.get(os.getenv('URL', default=''))
+        if res.status_code == 200:
+            print('Pinged own server')
+        else:
+            print('Failed to ping own server')
+    except Exception as e:
+        print('Failed to ping own server')
+        print(str(e))
+
+
+try:
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(func=keep_alive, trigger='interval', seconds=10 * 60)
+    scheduler.start()
+except Exception as e:
+    print('Failed to start scheduler')
+    print(str(e))
 
 
 @app.route('/')

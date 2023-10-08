@@ -1,3 +1,6 @@
 Gunicorn
 flask
 yt_dlp
+apscheduler
+requests
+python-dotenv
