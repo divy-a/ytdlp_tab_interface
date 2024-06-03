@@ -1,6 +1,6 @@
 Gunicorn
 flask
-yt_dlp
+yt_dlp==2024.5.27
 apscheduler
 requests
 python-dotenv
