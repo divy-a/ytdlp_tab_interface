@@ -3,9 +3,12 @@ import json
 from yt_dlp import YoutubeDL
 import requests
 
+options = {
+    'cookiefile': '/etc/secrets/cookies.txt',
+}
 
 app = Flask(__name__)
-ydl = YoutubeDL()
+ydl = YoutubeDL(options)
 
 
 @app.route('/')
