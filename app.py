@@ -7,9 +7,12 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from dotenv import load_dotenv
 load_dotenv()
 
+options = {
+    'cookiefile': '/etc/secrets/cookies.txt',
+}
 
 app = Flask(__name__)
-ydl = YoutubeDL()
+ydl = YoutubeDL(options)
 
 
 def keep_alive():
