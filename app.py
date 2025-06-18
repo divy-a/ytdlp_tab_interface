@@ -5,7 +5,12 @@ import requests
 
 
 app = Flask(__name__)
-ydl = YoutubeDL()
+
+ydl_opts = {
+    'cookiesfromfile' : 'cookies.txt',
+}
+
+ydl = YoutubeDL(ydl_opts)
 
 
 @app.route('/')
